@@ -16,3 +16,6 @@ graphqlTest.query('query { email }').contains('email');             // → true
 graphqlTest.query('query { email }').contains('postal_address');    // → false
 ```
 
+## License
+
+MIT
