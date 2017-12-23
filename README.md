@@ -1,5 +1,7 @@
 # graphql-test
 
+[![Build Status](https://api.travis-ci.org/fstoerkle/graphql-test.svg?branch=master)](https://api.travis-ci.org/fstoerkle/graphql-test)
+
 Utilities for testing GraphQL
 
 
