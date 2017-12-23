@@ -1,5 +1,7 @@
 # graphql-test
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fstoerkle/graphql-test.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://api.travis-ci.org/fstoerkle/graphql-test.svg?branch=master)](https://api.travis-ci.org/fstoerkle/graphql-test)
 
 Utilities for testing GraphQL
