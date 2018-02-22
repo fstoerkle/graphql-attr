@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { parse } = require('../index')
+const { parse } = require('../src')
 
 const query = `
   query {

@@ -13,6 +13,9 @@
     "query",
     "util"
   ],
+  "files": [
+    "src"
+  ],
   "author": "Florian Störkle <florian@stoerkle.net>",
   "license": "MIT",
   "devDependencies": {

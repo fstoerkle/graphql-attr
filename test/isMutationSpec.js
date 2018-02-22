@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { parse } = require('../index')
+const { parse } = require('../src')
 
 test('isMutation() returns true if a mutation is supplied', t => {
   const mutation = `

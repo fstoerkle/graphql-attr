@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { parse } = require('../index')
+const { parse } = require('../src')
 
 test('isQuery() returns true if a query is supplied', t => {
   const query = `

@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const { parse } = require('../index')
+const { parse } = require('../src')
 
 test('parse() returns an attr object for a valid query', t => {
   const validQuery = `
