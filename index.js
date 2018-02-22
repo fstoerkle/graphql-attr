@@ -23,9 +23,9 @@ const getSelectionFieldNames = query => {
 }
 
 module.exports = {
-  query(query) {
+  parse(query) {
     return {
-      contains(field) {
+      containsField(field) {
         const fields = getSelectionFieldNames(query)
 
         return fields.includes(field)

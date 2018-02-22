@@ -1,6 +1,6 @@
 const test = require('ava')
 
-const x = require('../index')
+const { parse } = require('../index')
 
 const query = `
   query {
@@ -8,10 +8,12 @@ const query = `
   }
 `
 
-test('query(..).contains() returns true if the query contains the field', t => {
-  t.true(x.query(query).contains('aField'))
+const attrs = parse(query)
+
+test('contains() returns true if the query contains the field', t => {
+  t.true(attrs.containsField('aField'))
 })
 
-test('query(..).contains() returns false if the query does not contain the field', t => {
-  t.false(x.query(query).contains('does not exist'))
+test('contains() returns false if the query does not contain the field', t => {
+  t.false(attrs.containsField('does not exist'))
 })
