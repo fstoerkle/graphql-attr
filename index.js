@@ -1,7 +1,7 @@
 const assert = require('assert')
 const gql = require('graphql-tag')
 
-const isQueryOperation = ({ operation }) => operation === 'query'
+const isOperation = kind => ({ operation }) => operation === kind
 const toNameValue = ({ name: { value } }) => value
 
 const parseQuery = query => {
@@ -12,17 +12,20 @@ const parseQuery = query => {
   return definitions
 }
 
-const getFieldNames = ast => {
-  const queryOp = ast.find(isQueryOperation)
+const getFieldNames = queryOp => {
   return queryOp.selectionSet.selections.map(toNameValue)
 }
 
 module.exports = {
   parse(query) {
     const ast = parseQuery(query)
+    const queryOp = ast.find(isOperation('query'))
+    const mutationOp = ast.find(isOperation('mutation'))
 
     return {
-      containsField: field => getFieldNames(ast).includes(field)
+      containsField: name => getFieldNames(queryOp).includes(name),
+      isQuery: () => Boolean(queryOp),
+      isMutation: () => Boolean(mutationOp)
     }
   }
 }
