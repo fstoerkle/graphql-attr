@@ -1,6 +1,6 @@
 {
   "name": "graphql-attr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Get attributes of GraphQL queries",
   "main": "index.js",
   "scripts": {
