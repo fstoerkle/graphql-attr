@@ -12,16 +12,17 @@ const parseQuery = query => {
   return definitions
 }
 
-const getFieldNames = query => {
-  const ast = parseQuery(query)
+const getFieldNames = ast => {
   const queryOp = ast.find(isQueryOperation)
   return queryOp.selectionSet.selections.map(toNameValue)
 }
 
 module.exports = {
   parse(query) {
+    const ast = parseQuery(query)
+
     return {
-      containsField: field => getFieldNames(query).includes(field)
+      containsField: field => getFieldNames(ast).includes(field)
     }
   }
 }

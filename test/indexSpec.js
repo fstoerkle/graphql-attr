@@ -2,18 +2,22 @@ const test = require('ava')
 
 const { parse } = require('../index')
 
-const query = `
-  query {
-    aField 
-  }
+test('parse() returns an attr object for a valid query', t => {
+  const validQuery = `
+    query {
+      aField 
+    }
 `
+  const attrs = parse(validQuery)
 
-const attrs = parse(query)
-
-test('contains() returns true if the query contains the field', t => {
-  t.true(attrs.containsField('aField'))
+  t.is(typeof attrs.containsField, 'function')
 })
 
-test('contains() returns false if the query does not contain the field', t => {
-  t.false(attrs.containsField('does not exist'))
+test('parse() throws an error if given an invalid query', t => {
+  const invalidQuery = `
+    this is not a valid query {
+      right?
+    }
+`
+  t.throws(() => parse(invalidQuery))
 })
