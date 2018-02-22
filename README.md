@@ -1,6 +1,6 @@
 # graphql-attr
 
-[![Build Status](https://api.travis-ci.org/fstoerkle/graphql-attr.svg?branch=master)](https://api.travis-ci.org/fstoerkle/graphql-attr) [![Greenkeeper badge](https://badges.greenkeeper.io/fstoerkle/graphql-attr.svg)](https://greenkeeper.io/)
+[![Build Status](https://api.travis-ci.org/fstoerkle/graphql-attr.svg?branch=master)](https://travis-ci.org/fstoerkle/graphql-attr) [![Greenkeeper badge](https://badges.greenkeeper.io/fstoerkle/graphql-attr.svg)](https://greenkeeper.io/)
 
 Get attributes of GraphQL queries
 
