@@ -5,15 +5,14 @@
 Get attributes of GraphQL queries
 
 
-## Queries
-
-### Test that a field is selected in a query
+## API
 
 ```javascript
 const { parse } = require('graphql-attr');
 
 parse('query { email }').containsField('email') // → true
 parse('query { email }').isMutation() // → false
+parse('query { email }').isQuery() // → true
 ```
 
 ## License
