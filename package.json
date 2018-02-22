@@ -1,7 +1,7 @@
 {
-  "name": "graphql-test",
-  "version": "1.0.0",
-  "description": "Test utilities for GraphQL",
+  "name": "graphql-attr",
+  "version": "0.0.1",
+  "description": " Get attributes of GraphQL queries ",
   "main": "index.js",
   "scripts": {
     "prettier": "prettier *.js test/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
@@ -9,8 +9,8 @@
   },
   "keywords": [
     "graphql",
-    "tdd",
-    "testing"
+    "query",
+    "util"
   ],
   "author": "Florian Störkle <florian@stoerkle.net>",
   "license": "MIT",

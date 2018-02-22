@@ -1,8 +1,8 @@
-# graphql-test
+# graphql-attr
 
 [![Build Status](https://api.travis-ci.org/fstoerkle/graphql-test.svg?branch=master)](https://api.travis-ci.org/fstoerkle/graphql-test) [![Greenkeeper badge](https://badges.greenkeeper.io/fstoerkle/graphql-test.svg)](https://greenkeeper.io/)
 
-Utilities for testing GraphQL
+Get attributes of GraphQL queries
 
 
 ## Queries
@@ -10,10 +10,10 @@ Utilities for testing GraphQL
 ### Test that a field is selected in a query
 
 ```javascript
-const graphqlTest = require('graphql-test');
+const { parse } = require('graphql-attr');
 
-graphqlTest.query('query { email }').contains('email');             // → true
-graphqlTest.query('query { email }').contains('postal_address');    // → false
+parse('query { email }').containsField('email') // → true
+parse('query { email }').isMutation() // → false
 ```
 
 ## License
