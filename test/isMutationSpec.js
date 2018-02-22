@@ -8,9 +8,8 @@ test('isMutation() returns true if a mutation is supplied', t => {
       aField 
     }
   `
-  const attrs = parse(mutation)
 
-  t.true(attrs.isMutation())
+  t.true(parse(mutation).isMutation())
 })
 
 test('isMutation() returns false if a query is supplied', t => {
@@ -19,7 +18,6 @@ test('isMutation() returns false if a query is supplied', t => {
       aField 
     }
   `
-  const attrs = parse(query)
 
-  t.false(attrs.isMutation())
+  t.false(parse(query).isMutation())
 })
