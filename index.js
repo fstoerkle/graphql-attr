@@ -1,35 +1,27 @@
 const assert = require('assert')
 const gql = require('graphql-tag')
 
+const isQueryOperation = ({ operation }) => operation === 'query'
+const toNameValue = ({ name: { value } }) => value
+
 const parseQuery = query => {
-  const ast = gql`
+  const { kind, definitions } = gql`
     ${query}
   `
-  assert.strictEqual(ast.kind, 'Document')
-  return ast
+  assert.strictEqual(kind, 'Document')
+  return definitions
 }
 
-const getSelections = query => {
+const getFieldNames = query => {
   const ast = parseQuery(query)
-  const queryDef = ast.definitions.find(
-    ({ operation }) => operation === 'query'
-  )
-  return queryDef.selectionSet.selections
-}
-
-const getSelectionFieldNames = query => {
-  const selections = getSelections(query)
-  return selections.map(({ name }) => name.value)
+  const queryOp = ast.find(isQueryOperation)
+  return queryOp.selectionSet.selections.map(toNameValue)
 }
 
 module.exports = {
   parse(query) {
     return {
-      containsField(field) {
-        const fields = getSelectionFieldNames(query)
-
-        return fields.includes(field)
-      }
+      containsField: field => getFieldNames(query).includes(field)
     }
   }
 }
