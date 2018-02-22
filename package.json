@@ -4,7 +4,7 @@
   "description": "Get attributes of GraphQL queries",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier *.js test/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
+    "prettier": "prettier src/**/*.js test/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
     "test": "ava test/**/*Spec.js",
     "coverage": "nyc npm test"
   },

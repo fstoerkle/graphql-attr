@@ -2,18 +2,33 @@ const assert = require('assert')
 const gql = require('graphql-tag')
 
 const isOperation = kind => ({ operation }) => operation === kind
-const toNameValue = ({ name: { value } }) => value
+const flattenNameValue = ({ name, value = {} }) => ({
+  name: name.value,
+  value: value.value
+})
+const nameValueToObject = (prev, { name, value }) =>
+  Object.assign(prev, { [name]: value })
 
 const parseQuery = query => {
-  const { kind, definitions } = gql`
+  const ast = gql`
     ${query}
   `
+  const { kind, definitions } = ast
+
   assert.strictEqual(kind, 'Document')
+
   return definitions
 }
 
+const getFirstSelection = operation => operation.selectionSet.selections[0]
+
+const getArguments = queryOp => {
+  const { arguments } = getFirstSelection(queryOp)
+  return arguments.map(flattenNameValue).reduce(nameValueToObject, {})
+}
+
 const getFieldNames = queryOp => {
-  return queryOp.selectionSet.selections.map(toNameValue)
+  return flattenNameValue(getFirstSelection(queryOp)).name
 }
 
 module.exports = {
@@ -23,9 +38,28 @@ module.exports = {
     const mutationOp = ast.find(isOperation('mutation'))
 
     return {
-      containsField: name => getFieldNames(queryOp).includes(name),
-      isQuery: () => Boolean(queryOp),
-      isMutation: () => Boolean(mutationOp)
+      containsArg(name, value) {
+        const shouldTestValue = arguments.length === 2
+        const args = getArguments(queryOp)
+
+        if (shouldTestValue) {
+          return args[name] === value
+        }
+
+        return args.hasOwnProperty(name)
+      },
+
+      containsField(name) {
+        return getFieldNames(queryOp).includes(name)
+      },
+
+      isQuery() {
+        return Boolean(queryOp)
+      },
+
+      isMutation() {
+        return Boolean(mutationOp)
+      }
     }
   }
 }
