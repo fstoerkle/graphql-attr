@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "graphql": "0.13.2",
-    "graphql-tag": "2.8.0"
+    "graphql-tag": "2.9.2"
   },
   "ava": {
     "verbose": true
