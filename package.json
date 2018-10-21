@@ -1,6 +1,6 @@
 {
   "name": "graphql-attr",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Get attributes of GraphQL queries",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,10 @@
     "src"
   ],
   "author": "Florian Störkle <florian@stoerkle.net>",
+  "repository": "https://github.com/fstoerkle/graphql-attr",
   "license": "MIT",
   "devDependencies": {
-    "ava": "0.25.0",
+    "ava": "1.0.0-rc.1",
     "nyc": "13.1.0",
     "pre-commit": "1.2.2",
     "prettier": "1.14.3"
