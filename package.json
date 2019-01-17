@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "graphql": "14.1.1",
-    "graphql-tag": "2.10.0"
+    "graphql-tag": "2.10.1"
   },
   "ava": {
     "verbose": true
