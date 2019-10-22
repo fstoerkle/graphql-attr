@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prettier": "prettier src/**/*.js test/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
-    "test": "ava test/**/*Spec.js",
+    "test": "ava",
     "coverage": "nyc npm test"
   },
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "ava": "1.4.1",
+    "ava": "2.4.0",
     "nyc": "14.1.1",
     "pre-commit": "1.2.2",
     "prettier": "1.18.2"
