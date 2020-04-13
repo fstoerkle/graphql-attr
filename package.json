@@ -26,7 +26,7 @@
     "ava": "3.7.0",
     "nyc": "15.0.1",
     "pre-commit": "1.2.2",
-    "prettier": "2.0.3"
+    "prettier": "2.0.4"
   },
   "dependencies": {
     "graphql": "15.0.0",
