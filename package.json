@@ -29,7 +29,7 @@
     "prettier": "2.0.5"
   },
   "dependencies": {
-    "graphql": "15.2.0",
+    "graphql": "15.3.0",
     "graphql-tag": "2.10.3"
   },
   "ava": {
